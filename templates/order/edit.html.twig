@@ -1,10 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="date">Date:</label>
+        {{ form_widget(form.Order_Date,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Task name'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="id_customer">Customer ID:</label>
+        {{ form_widget(form.CustomerID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Description'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="id_food">Food ID:</label>
+        {{ form_widget(form.FoodID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Description'
+            }
+        }) }}
+    </div>
+    <input type="submit" name="edit_todo" value="Edit" class="btn btn-primary"/>
+    {{ form_end(form) }}
 {% endblock %}
-
-{% block title %}
-
-{% endblock %}
-

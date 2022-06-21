@@ -1,0 +1,29 @@
+[33mcommit a24241b47962e28dd5e344bccd4ed1b545f08e20[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 21 15:18:36 2022 +0700
+
+    Bug Fix
+
+[33mcommit f2203029091dc58593cc427d55bf2df6f503bb98[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 21 15:13:53 2022 +0700
+
+    Bug Fix
+
+[33mcommit e722e7193c1d1042cc093b738924826d31167c93[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Your Name <you@example.com>
+Date:   Mon Jun 20 13:47:21 2022 +0700
+
+    first commit
+
+[33mcommit a06f547c4678c4900cf9be99352eb80e91b7fc63[m
+Author: Your Name <you@example.com>
+Date:   Sun Jun 19 16:38:54 2022 +0700
+
+    Add webapp packages
+
+[33mcommit 95e43a4396727493d2896376a3e7c0eabfc0ac78[m
+Author: Your Name <you@example.com>
+Date:   Sun Jun 19 16:37:11 2022 +0700
+
+    Add initial set of files

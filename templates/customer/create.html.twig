@@ -1,10 +1,39 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="name">Name:</label>
+        {{ form_widget(form.Customer_Name,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Enter your name'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Customer_Name) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name">Phone:</label>
+        {{ form_widget(form.Phone,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Enter ur age'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Phone) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Gender:</label>
+        {{ form_widget(form.Gender,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Enter gender'
+            }
+        }) }}
+    </div>
+    <input type="submit" name="create_customer" value="Create" class="btn btn-primary"/>
+    {{ form_end(form) }}
 {% endblock %}
-
-{% block title %}
-
-{% endblock %}
-
