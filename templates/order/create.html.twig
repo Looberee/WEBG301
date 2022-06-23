@@ -14,11 +14,11 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="id_customer">Customer ID:</label>
+        <label for="id_customer">Customer Name:</label>
         {{ form_widget(form.CustomerID,{
             'attr':{
                 'class':'form-control',
-                'placeholder': 'Enter ur Customer ID'
+                'placeholder': 'Select ur Customer Name'
             }
         }) }}
         <div class="invalid-feedback">
@@ -26,11 +26,20 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="id_food">Food ID:</label>
+        <label for="id_food">Food Name:</label>
         {{ form_widget(form.FoodID,{
             'attr':{
                 'class':'form-control',
-                'placeholder': 'Enter food id'
+                'placeholder': 'Select food name'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="quantities">Quantities:</label>
+        {{ form_widget(form.Quantities,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Select Quantities'
             }
         }) }}
     </div>

@@ -18,7 +18,7 @@ class OrderController extends AbstractController
     {
         $orders = $this->getDoctrine()->getRepository(Order::class)->findAll();
         return $this->render('order/index.html.twig', [
-            'orders' => $orders,
+            'orders' => $orders
         ]);
     }
     /**
@@ -42,7 +42,7 @@ class OrderController extends AbstractController
     /**
      * @Route("/order/details/{id}", name="order_details")
      */
-    public function customer_details($id): Response
+    public function order_details($id): Response
     {
         $orders = $this->getDoctrine()->getRepository(Order::class)->find($id);
         return $this->render('order/details.html.twig', [
@@ -77,13 +77,16 @@ class OrderController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (isset($request->request->get('order')['date'])) {
-                $order->setName(\DateTime::createFromFormat('Y-m-d',$request->request->get('order')['date']));
+                $order->set(\DateTime::createFromFormat('Y-m-d',$request->request->get('order')['date']));
             }
             if (isset($request->request->get('order')['CustomerID'])) {
-                $order->setName($request->request->get('order')['CustomerID']);
+                $order->set($request->request->get('order')['CustomerID']);
             }
             if (isset($request->request->get('order')['FoodID'])) {
-                $order->setName($request->request->get('order')['FoodID']);
+                $order->set($request->request->get('order')['FoodID']);
+            }
+            if (isset($request->request->get('order')['Quantities'])) {
+                $order->set($request->request->get('order')['Quantities']);
             }
             $em = $this->getDoctrine()->getManager();
             $em->persist($order);

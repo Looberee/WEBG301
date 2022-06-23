@@ -9,18 +9,20 @@
             <tr>
                 <th>No.</th>
                 <th>Order Date</th>
-                <th>Customer ID</th>
-                <th>Food ID</th>
+                <th>Customer Name</th>
+                <th>Food Name</th>
+                <th>Quantities</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            {% for order in orders %}
+            {% for order in orders%}
                 <tr>
                     <th scope="row">{{ order.id }}</th>
                     <td>{{ order.orderDate|date('F j,Y, g:i a')  }}</td>
                     <td>{{ order.customerID }}</td>
                     <td>{{ order.foodID }}</td>
+                    <td>{{ order.quantities }}</td>
                     <td>
                         <a href="{{ path('order_details', {'id': order.id}) }} " class='btn btn-success'>View</a>
                         <a href="{{ path('order_edit', {'id': order.id}) }}" class='btn btn-default'>Edit</a>

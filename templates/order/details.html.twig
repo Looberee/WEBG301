@@ -9,11 +9,8 @@
     <ul class="list-group">
         <li class="list-group-item">Id: {{ orders.id }}</li>
         <li class="list-group-item">Date: {{ orders.orderDate|date('F j,Y, g:i a')  }}</li>
-{#        <li class="list-group-item">Customer Name:{{ customers.CustomerName }}</li>#}
-{#        <li class="list-group-item">Phone: {{ customers.phone }}</li>#}
-{#        <li class="list-group-item">Gender: {{ customers.gender }}</li>#}
-{#        <li class="list-group-item">Product:{{ foods.name }}</li>#}
-{#        <li class="list-group-item">Product:{{ foods.description }}</li>#}
+        <li class="list-group-item">Customer Name:{{ orders.CustomerID }}</li>
+        <li class="list-group-item">Product:{{ orders.FoodID }}</li>
     </ul>
 
 {% endblock %}

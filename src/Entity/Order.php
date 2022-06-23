@@ -35,6 +35,11 @@ class Order
      */
     private $FoodID;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $Quantities;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -79,4 +84,17 @@ class Order
     {
         return (string)$this->getOrderDate();
     }
+
+    public function getQuantities(): ?int
+    {
+        return $this->Quantities;
+    }
+
+    public function setQuantities(int $Quantities): self
+    {
+        $this->Quantities = $Quantities;
+
+        return $this;
+    }
+
 }

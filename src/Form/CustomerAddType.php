@@ -16,7 +16,13 @@ class CustomerAddType extends AbstractType
         $builder
             ->add('Customer_Name')
             ->add('Phone')
-            ->add('Gender')
+            ->add('Gender', ChoiceType::class,[
+                'choices' =>[
+                    'Male'=>'Male',
+                    'Female'=>'Female',
+                    'Other'=>'Other',
+                ]
+            ])
         ;
     }
 

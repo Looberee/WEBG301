@@ -18,6 +18,7 @@ class OrderAddType extends AbstractType
             ->add('Order_Date',DateType::class, ['widget' => 'single_text'])
             ->add('CustomerID')
             ->add('FoodID')
+            ->add('Quantities')
         ;
     }
 

@@ -16,7 +16,7 @@
         {{ form_widget(form.CustomerID,{
             'attr':{
                 'class':'form-control',
-                'placeholder': 'Description'
+                'placeholder': 'Customer Nmae'
             }
         }) }}
     </div>
@@ -25,7 +25,16 @@
         {{ form_widget(form.FoodID,{
             'attr':{
                 'class':'form-control',
-                'placeholder': 'Description'
+                'placeholder': 'Food Name'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="quantities">Quantities:</label>
+        {{ form_widget(form.Quantities,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Quantities'
             }
         }) }}
     </div>
