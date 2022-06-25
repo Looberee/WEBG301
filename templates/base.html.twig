@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,33 +12,25 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <!-- Bootstrap core CSS -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('navbar.css') }}">
+        <script src="https://kit.fontawesome.com/a61908a9a8.js" crossorigin="anonymous"></script>
         {% block stylesheets %}{% endblock %}
 
     </head>
     <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">HomePage</a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="{{ path('food_list') }}">Food</a></li>
-                    <li><a href="{{ path('customer_list') }}">Customer</a></li>
-                    <li><a href="{{ path('order_list') }}">Order</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-book"></i> News</a></li>
+                <li><a href="{{ path('customer_list') }}"><i class="fa-solid fa-users"></i> Customers</a></li>
+                <li><a href="{{ path('order_list') }}"><i class="fa-solid fa-bag-shopping"></i> Orders</a></li>
+                <li><a href="{{ path('food_list') }}"><i class="fa-solid fa-database"></i> Products</a></li>
+                <a href="#" class="cta"><button> Login</button> </a>
+            </ul>
+        </nav>
 
+    </header>
     {% block body %}{% endblock %}
     </body>
 </html>
