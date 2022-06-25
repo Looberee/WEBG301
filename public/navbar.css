@@ -63,5 +63,8 @@ nav{
     margin: auto;
     width: 100%;
 }
-
+.list-group-item
+{
+    color: #24252a;
+}
 
