@@ -34,9 +34,15 @@ class Food
      */
     private $orders;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Delivery::class, mappedBy="Food_ID")
+     */
+    private $deliveries;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->deliveries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -99,5 +105,35 @@ class Food
     }
     public function __toString() {
         return (string)$this->getName();
+    }
+
+    /**
+     * @return Collection<int, Delivery>
+     */
+    public function getDeliveries(): Collection
+    {
+        return $this->deliveries;
+    }
+
+    public function addDelivery(Delivery $delivery): self
+    {
+        if (!$this->deliveries->contains($delivery)) {
+            $this->deliveries[] = $delivery;
+            $delivery->setFoodID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDelivery(Delivery $delivery): self
+    {
+        if ($this->deliveries->removeElement($delivery)) {
+            // set the owning side to null (unless already changed)
+            if ($delivery->getFoodID() === $this) {
+                $delivery->setFoodID(null);
+            }
+        }
+
+        return $this;
     }
 }

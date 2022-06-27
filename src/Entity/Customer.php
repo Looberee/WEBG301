@@ -39,9 +39,15 @@ class Customer
      */
     private $orders;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Delivery::class, mappedBy="Customer_ID")
+     */
+    private $deliveries;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->deliveries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -117,4 +123,34 @@ class Customer
     public function __toString() {
         return (string)$this->getCustomerName();
         }
+
+    /**
+     * @return Collection<int, Delivery>
+     */
+    public function getDeliveries(): Collection
+    {
+        return $this->deliveries;
+    }
+
+    public function addDelivery(Delivery $delivery): self
+    {
+        if (!$this->deliveries->contains($delivery)) {
+            $this->deliveries[] = $delivery;
+            $delivery->setCustomerID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDelivery(Delivery $delivery): self
+    {
+        if ($this->deliveries->removeElement($delivery)) {
+            // set the owning side to null (unless already changed)
+            if ($delivery->getCustomerID() === $this) {
+                $delivery->setCustomerID(null);
+            }
+        }
+
+        return $this;
+    }
 }
