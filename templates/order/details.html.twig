@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Food Details!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('order_list') }}" class="btn btn-default">Back</a>
+    <hr/>
+    <h2 class="page-header">{{ orders.id }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Id: {{ orders.id }}</li>
+        <li class="list-group-item">Date: {{ orders.orderDate|date('F j,Y, g:i a')  }}</li>
+        <li class="list-group-item">Customer Name:{{ orders.CustomerID }}</li>
+        <li class="list-group-item">Product:{{ orders.FoodID }}</li>
+    </ul>
+
+{% endblock %}

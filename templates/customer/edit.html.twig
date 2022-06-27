@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="Cname">Customer Name:</label>
+        {{ form_widget(form.Customer_Name,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Enter your name'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone:</label>
+        {{ form_widget(form.Phone,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Enter your phone'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="gender">Gender:</label>
+        {{ form_widget(form.Gender,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Enter your gender'
+            }
+        }) }}
+    </div>
+    <input type="submit" name="edit_todo" value="Edit" class="btn btn-primary"/>
+    {{ form_end(form) }}
+{% endblock %}

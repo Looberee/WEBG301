@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+        <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/starter-template/">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Bootstrap core CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('navbar.css') }}">
+        <script src="https://kit.fontawesome.com/a61908a9a8.js" crossorigin="anonymous"></script>
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+    <body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-book"></i> News</a></li>
+                <li><a href="{{ path('customer_list') }}"><i class="fa-solid fa-users"></i> Customers</a></li>
+                <li><a href="{{ path('order_list') }}"><i class="fa-solid fa-bag-shopping"></i> Orders</a></li>
+                <li><a href="{{ path('food_list') }}"><i class="fa-solid fa-database"></i> Products</a></li>
+                <li><a href="{{ path('delivery_list') }}"><i class="fas fa-shipping-fast"></i> Deliveries</a></li>
+                <a href="#" class="cta"><button> Login</button> </a>
+            </ul>
+        </nav>
+
+    </header>
+    {% block body %}{% endblock %}
+    </body>
+</html>

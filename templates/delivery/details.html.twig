@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Delivery Details!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('delivery_list') }}" class="btn btn-default">Back</a>
+    <hr/>
+    <h2 class="page-header">{{ deliveries.id }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Id: {{ deliveries.id }}</li>
+        <li class="list-group-item">Customer Name:{{ deliveries.CustomerID }}</li>
+        <li class="list-group-item">Product:{{ deliveries.FoodID }}</li>
+        <li class="list-group-item">Product:{{ deliveries.Quantity }}</li>
+        <li class="list-group-item">Product:{{ deliveries.Payment }}</li>
+        <li class="list-group-item">Date: {{ deliveries.DateDelivery|date('F j,Y, g:i a')  }}</li>
+    </ul>
+
+{% endblock %}
