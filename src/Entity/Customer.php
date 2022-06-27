@@ -44,10 +44,16 @@ class Customer
      */
     private $deliveries;
 
+    /**
+     * @ORM\OneToMany(targetEntity=TransactionReports::class, mappedBy="Customer_ID")
+     */
+    private $Customer_ID;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
         $this->deliveries = new ArrayCollection();
+        $this->Customer_ID = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -122,7 +128,7 @@ class Customer
     }
     public function __toString() {
         return (string)$this->getCustomerName();
-        }
+    }
 
     /**
      * @return Collection<int, Delivery>
@@ -148,6 +154,36 @@ class Customer
             // set the owning side to null (unless already changed)
             if ($delivery->getCustomerID() === $this) {
                 $delivery->setCustomerID(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TransactionReports>
+     */
+    public function getCustomerID(): Collection
+    {
+        return $this->Customer_ID;
+    }
+
+    public function addCustomerID(TransactionReports $customerID): self
+    {
+        if (!$this->Customer_ID->contains($customerID)) {
+            $this->Customer_ID[] = $customerID;
+            $customerID->setCustomerID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCustomerID(TransactionReports $customerID): self
+    {
+        if ($this->Customer_ID->removeElement($customerID)) {
+            // set the owning side to null (unless already changed)
+            if ($customerID->getCustomerID() === $this) {
+                $customerID->setCustomerID(null);
             }
         }
 

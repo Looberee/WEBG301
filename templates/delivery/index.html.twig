@@ -26,7 +26,7 @@
                     <td>{{ delivery.DateDelivery|date('F j,Y, g:i a')  }}</td>
                     <td>
                         <a href="{{ path('delivery_details', {'id': delivery.id}) }} " class='btn btn-success'>View</a>
-                        <a href="{{ path('delivery_edit', {'id': delivery.id}) }}" class='btn btn-default'>Edit</a>}
+                        <a href="{{ path('delivery_edit', {'id': delivery.id}) }}" class='btn btn-default'>Edit</a>
                         <a href="{{ path('delivery_delete', {'id': delivery.id}) }}" class='btn btn-danger'>Delete</a>
                     </td>
                 </tr>

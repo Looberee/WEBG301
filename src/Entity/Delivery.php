@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DeliveryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Delivery
      * @ORM\Column(type="date")
      */
     private $date_delivery;
+
+    /**
+     * @ORM\OneToMany(targetEntity=TransactionReports::class, mappedBy="Delivery_ID")
+     */
+    private $Delivery_ID;
+
+    public function __construct()
+    {
+        $this->Delivery_ID = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,36 @@ class Delivery
     public function setDateDelivery(\DateTimeInterface $date_delivery): self
     {
         $this->date_delivery = $date_delivery;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TransactionReports>
+     */
+    public function getDeliveryID(): Collection
+    {
+        return $this->Delivery_ID;
+    }
+
+    public function addDeliveryID(TransactionReports $deliveryID): self
+    {
+        if (!$this->Delivery_ID->contains($deliveryID)) {
+            $this->Delivery_ID[] = $deliveryID;
+            $deliveryID->setDeliveryID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDeliveryID(TransactionReports $deliveryID): self
+    {
+        if ($this->Delivery_ID->removeElement($deliveryID)) {
+            // set the owning side to null (unless already changed)
+            if ($deliveryID->getDeliveryID() === $this) {
+                $deliveryID->setDeliveryID(null);
+            }
+        }
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,6 +41,16 @@ class Order
      * @ORM\Column(type="integer")
      */
     private $Quantities;
+
+    /**
+     * @ORM\OneToMany(targetEntity=TransactionReports::class, mappedBy="Order_ID")
+     */
+    private $Order_ID;
+
+    public function __construct()
+    {
+        $this->Order_ID = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -93,6 +105,36 @@ class Order
     public function setQuantities(int $Quantities): self
     {
         $this->Quantities = $Quantities;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TransactionReports>
+     */
+    public function getOrderID(): Collection
+    {
+        return $this->Order_ID;
+    }
+
+    public function addOrderID(TransactionReports $orderID): self
+    {
+        if (!$this->Order_ID->contains($orderID)) {
+            $this->Order_ID[] = $orderID;
+            $orderID->setOrderID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderID(TransactionReports $orderID): self
+    {
+        if ($this->Order_ID->removeElement($orderID)) {
+            // set the owning side to null (unless already changed)
+            if ($orderID->getOrderID() === $this) {
+                $orderID->setOrderID(null);
+            }
+        }
 
         return $this;
     }

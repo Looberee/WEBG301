@@ -39,10 +39,16 @@ class Food
      */
     private $deliveries;
 
+    /**
+     * @ORM\OneToMany(targetEntity=TransactionReports::class, mappedBy="Food_ID")
+     */
+    private $Food_ID;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
         $this->deliveries = new ArrayCollection();
+        $this->Food_ID = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -131,6 +137,36 @@ class Food
             // set the owning side to null (unless already changed)
             if ($delivery->getFoodID() === $this) {
                 $delivery->setFoodID(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TransactionReports>
+     */
+    public function getFoodID(): Collection
+    {
+        return $this->Food_ID;
+    }
+
+    public function addFoodID(TransactionReports $foodID): self
+    {
+        if (!$this->Food_ID->contains($foodID)) {
+            $this->Food_ID[] = $foodID;
+            $foodID->setFoodID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFoodID(TransactionReports $foodID): self
+    {
+        if ($this->Food_ID->removeElement($foodID)) {
+            // set the owning side to null (unless already changed)
+            if ($foodID->getFoodID() === $this) {
+                $foodID->setFoodID(null);
             }
         }
 
