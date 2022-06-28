@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Delivery;
-use App\Entity\Order;
 use App\Form\DeliveryAddType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class DeliveryController extends AbstractController
 {
@@ -28,8 +28,8 @@ class DeliveryController extends AbstractController
     public function delete_deliveries($id): Response
     {
         $em = $this->getDoctrine()->getManager();
-        $delivery = $em->getRepository(Delivery::class)->find($id);
-        $em->remove($delivery);
+        $deliveries = $em->getRepository(Delivery::class)->find($id);
+        $em->remove($deliveries);
         $em->flush();
 
         $this->addFlash(
@@ -47,7 +47,7 @@ class DeliveryController extends AbstractController
     {
         $deliveries = $this->getDoctrine()->getRepository(Delivery::class)->find($id);
         return $this->render('delivery/details.html.twig', [
-            'deliveries' => $deliveries,
+            'delivery' => $deliveries,
         ]);
     }
     /**
@@ -55,10 +55,10 @@ class DeliveryController extends AbstractController
      */
     public function create(Request $request)
     {
-        $delivery = new Delivery();
-        $form = $this->createForm(DeliveryAddType::class, $delivery);
+        $deliveries = new Delivery();
+        $form = $this->createForm(DeliveryAddType::class, $deliveries);
 
-        if ($this->saveChanges($form, $request, $delivery)) {
+        if ($this->saveChanges($form, $request, $deliveries)) {
             $this->addFlash(
                 'notice',
                 'Delivery Added'
@@ -72,28 +72,28 @@ class DeliveryController extends AbstractController
         ]);
     }
 
-    public function saveChanges($form, $request, $delivery): bool
+    public function saveChanges($form, $request, $deliveries): bool
     {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (isset($request->request->get('delivery')['date'])) {
-                $delivery->set(\DateTime::createFromFormat('Y-m-d',$request->request->get('delivery')['date']));
+                $deliveries->set(\DateTime::createFromFormat('Y-m-d',$request->request->get('delivery')['date']));
             }
             if (isset($request->request->get('delivery')['CustomerID'])) {
-                $delivery->set($request->request->get('order')['CustomerID']);
+                $deliveries->set($request->request->get('order')['CustomerID']);
             }
             if (isset($request->request->get('delivery')['FoodID'])) {
-                $delivery->set($request->request->get('delivery')['FoodID']);
+                $deliveries->set($request->request->get('delivery')['FoodID']);
             }
             if (isset($request->request->get('delivery')['Quantities'])) {
-                $delivery->set($request->request->get('delivery')['Quantities']);
+                $deliveries->set($request->request->get('delivery')['Quantities']);
             }
             if (isset($request->request->get('delivery')['Payment'])) {
-                $delivery->set($request->request->get('delivery')['Payment']);
+                $deliveries->set($request->request->get('delivery')['Payment']);
             }
             $em = $this->getDoctrine()->getManager();
-            $em->persist($delivery);
+            $em->persist($deliveries);
             $em->flush();
 
 
@@ -107,10 +107,10 @@ class DeliveryController extends AbstractController
     public function edit_delivery($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $delivery = $em->getRepository(Delivery::class)->find($id);
-        $form = $this->createForm(DeliveryAddType::class, $delivery);
+        $deliveries = $em->getRepository(Delivery::class)->find($id);
+        $form = $this->createForm(DeliveryAddType::class, $deliveries);
 
-        if ($this->saveChanges($form, $request, $delivery)) {
+        if ($this->saveChanges($form, $request, $deliveries)) {
             $this->addFlash(
                 'notice',
                 'Delivery Edited'
