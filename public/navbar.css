@@ -2,7 +2,7 @@
 {
  margin: 0;
  padding: 0;
- box-sizing: border-box;  
+ box-sizing: border-box;
 
 }
 li, a, button{
@@ -24,7 +24,7 @@ header
     background-color: #24252a;
     padding: 20px 100px ;
     list-style: none;
-    width: 100%;
+    width: 200%;
 }
 .nav-links li{
 display: inline-block;

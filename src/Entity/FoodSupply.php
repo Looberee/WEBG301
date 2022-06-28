@@ -85,14 +85,6 @@ class FoodSupply
         return $this;
     }
 
-    /**
-     * @return Collection<int, TransactionReports>
-     */
-    public function getSupplyID(): Collection
-    {
-        return $this->Supply_ID;
-    }
-
     public function addSupplyID(TransactionReports $supplyID): self
     {
         if (!$this->Supply_ID->contains($supplyID)) {

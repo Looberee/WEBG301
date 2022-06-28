@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Food Supply Details!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('food_supply_list') }}" class="btn btn-default">Back to Food List</a>
+    <hr/>
+    <h2 class="page-header">{{ food_supply.name }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Id: {{ food_supply.id }}</li>
+        <li class="list-group-item">Name: {{ food_supply.name }}</li>
+        <li class="list-group-item">Quantity_Supply: <strong>{{ food_supply.quantity_supply }}</strong></li>
+        <li class="list-group-item">Date_Supply: <strong>{{ food_supply.date_supply }}</strong></li>
+    </ul>
+{% endblock %}

@@ -89,6 +89,9 @@ class DeliveryController extends AbstractController
             if (isset($request->request->get('delivery')['Quantities'])) {
                 $delivery->set($request->request->get('delivery')['Quantities']);
             }
+            if (isset($request->request->get('delivery')['Payment'])) {
+                $delivery->set($request->request->get('delivery')['Payment']);
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($delivery);
             $em->flush();
