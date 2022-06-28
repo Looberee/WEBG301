@@ -4,7 +4,7 @@
     {{ form_start(form) }}
     <div class="form-group">
         <label for="name">Name:</label>
-        {{ form_widget(form.name,{
+        {{ form_widget(form.Name,{
             'attr':{
                 'class':'form-control',
                 'placeholder': 'Name'
@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         <label for="quantity_supply">Quantity Supply:</label>
-        {{ form_widget(form.quantity_supply,{
+        {{ form_widget(form.Quantity_Supply,{
             'attr':{
                 'class':'form-control',
                 'placeholder': 'Quantity_Supply'
@@ -22,13 +22,13 @@
     </div>
     <div class="form-group">
         <label for="date_supply">Date Supply:</label>
-        {{ form_widget(form.date_supply,{
+        {{ form_widget(form.Date_Supply,{
             'attr':{
                 'class':'form-control',
                 'placeholder': 'Date_Supply'
             }
         }) }}
     </div>
-    <input type="submit" name="edit_todo" value="Edit" class="btn btn-primary"/>
+    <input type="submit" name="supply_edit" value="Edit" class="btn btn-primary"/>
     {{ form_end(form) }}
 {% endblock %}

@@ -18,8 +18,8 @@
                 <tr>
                     <th scope="row">{{ supply.id }}</th>
                     <td>{{ supply.name }}</td>
-                    <td>{{ supply.quantity_supply }}</td>
-                    <td>{{ supply.date_supply|date('F j,Y, g:i a')  }}</td>
+                    <td>{{ supply.QuantitySupply }}</td>
+                    <td>{{ supply.DateSupply|date('F j,Y, g:i a')  }}</td>
                     <td>
                         <a href="{{ path('supply_details', {'id': supply.id}) }} " class='btn btn-success'>View</a>
                         <a href="{{ path('supply_edit', {'id': supply.id}) }}" class='btn btn-default'>Edit</a>

@@ -6,7 +6,7 @@ use App\Entity\FoodSupply;
 use App\Form\FoodSupplyAddType;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -64,7 +64,7 @@ class FoodSupplyController extends AbstractController
         if ($this->saveChanges($form, $request, $supplies)) {
             $this->addFlash(
                 'notice',
-                'FoodSupply Added'
+                'Supply Added'
             );
 
             return $this->redirectToRoute('supply_list');
