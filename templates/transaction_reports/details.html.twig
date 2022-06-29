@@ -8,11 +8,11 @@
     <h2 class="page-header">{{ transactions.Id }}</h2>
     <ul class="list-group">
         <li class="list-group-item">Id: {{ transactions.Id }}</li>
-        <li class="list-group-item">Order Name:{{ transactions.OrderID }}</li>
+        <li class="list-group-item">Order ID:{{ transactions.OrderID }}</li>
         <li class="list-group-item">Customer Name:{{ transactions.CustomerID }}</li>
-        <li class="list-group-item">Product:{{ transactions.FoodID }}</li>
-        <li class="list-group-item">Supply :{{ transactions.SupplyID }}</li>
-        <li class="list-group-item">Delivery:{{ transactions.DeliveryID }}</li>
+        <li class="list-group-item">Food Name:{{ transactions.FoodID }}</li>
+        <li class="list-group-item">Supply ID:{{ transactions.SupplyID }}</li>
+        <li class="list-group-item">Delivery ID:{{ transactions.DeliveryID }}</li>
         <li class="list-group-item">Date Supply: {{ transactions.DateSupply|date('F j,Y, g:i a')  }}</li>
     </ul>
 

@@ -8,8 +8,8 @@
     <h2 class="page-header">{{ supplies.Name }}</h2>
     <ul class="list-group">
         <li class="list-group-item">Id: {{ supplies.id }}</li>
-        <li class="list-group-item">Name: {{ supplies.Name }}</li>
-        <li class="list-group-item">Quantity_Supply: <strong>{{ supplies.QuantitySupply }}</strong></li>
-        <li class="list-group-item">Date_Supply: <strong>{{ supplies.datesupply|date('F j,Y, g:i a') }}</strong></li>
+        <li class="list-group-item">Name Supply: {{ supplies.Name }}</li>
+        <li class="list-group-item">Quantity Supply: <strong>{{ supplies.QuantitySupply }}</strong></li>
+        <li class="list-group-item">Date Supply: <strong>{{ supplies.datesupply|date('F j,Y, g:i a') }}</strong></li>
     </ul>
 {% endblock %}
