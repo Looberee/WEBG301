@@ -148,4 +148,8 @@ class Delivery
 
         return $this;
     }
+    public function __ToString()
+    {
+        return (string)$this->getId();
+    }
 }

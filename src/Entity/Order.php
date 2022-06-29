@@ -94,7 +94,7 @@ class Order
     }
     public function __toString()
     {
-        return (string)$this->getOrderDate();
+        return (string)$this->getId();
     }
 
     public function getQuantities(): ?int

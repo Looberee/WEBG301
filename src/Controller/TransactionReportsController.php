@@ -46,7 +46,7 @@ class TransactionReportsController extends AbstractController
     public function transaction_details($id): Response
     {
         $transactions = $this->getDoctrine()->getRepository(TransactionReports::class)->find($id);
-        return $this->render('transaction/details.html.twig', [
+        return $this->render('transaction_reports/details.html.twig', [
             'transactions' => $transactions,
         ]);
     }
@@ -67,7 +67,7 @@ class TransactionReportsController extends AbstractController
             return $this->redirectToRoute('transaction_list');
         }
 
-        return $this->render('transaction/create.html.twig', [
+        return $this->render('transaction_reports/create.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -121,7 +121,7 @@ class TransactionReportsController extends AbstractController
             return $this->redirectToRoute('transaction_list');
         }
 
-        return $this->render('transaction/edit.html.twig', [
+        return $this->render('transaction_reports/edit.html.twig', [
             'form' => $form->createView()
         ]);
     }

@@ -5,15 +5,15 @@
 {% block body %}
     <a href="{{ path('transaction_list') }}" class="btn btn-default">Back</a>
     <hr/>
-    <h2 class="page-header">{{ transaction.id }}</h2>
+    <h2 class="page-header">{{ transactions.Id }}</h2>
     <ul class="list-group">
-        <li class="list-group-item">Id: {{ transaction.id }}</li>
-        <li class="list-group-item">Order Name:{{ transaction.OderID }}</li>
-        <li class="list-group-item">Customer Name:{{ transaction.CustomerID }}</li>
-        <li class="list-group-item">Product:{{ transaction.FoodID }}</li>
-        <li class="list-group-item">Supply :{{ transaction.SupplyID }}</li>
-        <li class="list-group-item">Delivery:{{ transaction.DeliveryID }}</li>
-        <li class="list-group-item">Date Supply: {{ transaction.DateSupply|date('F j,Y, g:i a')  }}</li>
+        <li class="list-group-item">Id: {{ transactions.Id }}</li>
+        <li class="list-group-item">Order Name:{{ transactions.OrderID }}</li>
+        <li class="list-group-item">Customer Name:{{ transactions.CustomerID }}</li>
+        <li class="list-group-item">Product:{{ transactions.FoodID }}</li>
+        <li class="list-group-item">Supply :{{ transactions.SupplyID }}</li>
+        <li class="list-group-item">Delivery:{{ transactions.DeliveryID }}</li>
+        <li class="list-group-item">Date Supply: {{ transactions.DateSupply|date('F j,Y, g:i a')  }}</li>
     </ul>
 
 {% endblock %}
