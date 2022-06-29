@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transaction Details!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('transaction_list') }}" class="btn btn-default">Back</a>
+    <hr/>
+    <h2 class="page-header">{{ transaction.id }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Id: {{ transaction.id }}</li>
+        <li class="list-group-item">Order Name:{{ transaction.OderID }}</li>
+        <li class="list-group-item">Customer Name:{{ transaction.CustomerID }}</li>
+        <li class="list-group-item">Product:{{ transaction.FoodID }}</li>
+        <li class="list-group-item">Supply :{{ transaction.SupplyID }}</li>
+        <li class="list-group-item">Delivery:{{ transaction.DeliveryID }}</li>
+        <li class="list-group-item">Date Supply: {{ transaction.DateSupply|date('F j,Y, g:i a')  }}</li>
+    </ul>
+
+{% endblock %}

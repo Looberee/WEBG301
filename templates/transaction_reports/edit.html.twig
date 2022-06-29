@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="date_supply">Delivery Date:</label>
+        {{ form_widget(form.Date_Supply,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'supply date'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="id_order">Order:</label>
+        {{ form_widget(form.Order_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Order ID'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="id_customer">Customer ID:</label>
+        {{ form_widget(form.Customer_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Customer Name'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="id_food">Food ID:</label>
+        {{ form_widget(form.Food_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Food Name'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="id_supply">Supply:</label>
+        {{ form_widget(form.Supply_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Supply'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="id_delivery">Delivery:</label>
+        {{ form_widget(form.Delivery_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Delivery'
+            }
+        }) }}
+    </div>
+    <input type="submit" name="transaction_edit" value="Edit" class="btn btn-primary"/>
+    {{ form_end(form) }}
+{% endblock %}

@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TransactionReports
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -122,5 +123,9 @@ class TransactionReports
         $this->Date_Supply = $Date_Supply;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return (string)$this->getDateSupply();
     }
 }

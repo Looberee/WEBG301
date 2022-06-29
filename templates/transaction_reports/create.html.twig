@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="date_supply">Transaction Date:</label>
+        {{ form_widget(form.Date_Supply,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Enter transaction date'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Date_Supply) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="id_order">Order Name:</label>
+        {{ form_widget(form.Order_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Select Order Name'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Order_ID) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="id_customer">Customer Name:</label>
+        {{ form_widget(form.Customer_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Select Customer Name'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Customer_ID) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="id_food">Food Name:</label>
+        {{ form_widget(form.Food_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Select food name'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Food_ID) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="supplies">Supply Transaction:</label>
+        {{ form_widget(form.Supply_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Select Quantities'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Supply_ID) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="delivery_id">Delivery:</label>
+        {{ form_widget(form.Delivery_ID,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Select Delivery'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Delivery_ID) }}
+        </div>
+    </div>
+    <input type="submit" name="transaction_create" value="Create" class="btn btn-primary"/>
+    {{ form_end(form) }}
+{% endblock %}

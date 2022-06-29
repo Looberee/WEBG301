@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\TransactionReports;
+use App\Form\TransactionReportsAddType;
 use App\Repository\TransactionReportsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -75,8 +77,8 @@ class TransactionReportsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if (isset($request->request->get('transaction')['date'])) {
-                $transactions->set(\DateTime::createFromFormat('Y-m-d',$request->request->get('delivery')['date']));
+            if (isset($request->request->get('transaction')['DateSupply'])) {
+                $transactions->set(\DateTime::createFromFormat('Y-m-d',$request->request->get('transaction')['DateSupply']));
             }
             if (isset($request->request->get('transaction')['CustomerID'])) {
                 $transactions->set($request->request->get('transaction')['CustomerID']);
@@ -87,7 +89,7 @@ class TransactionReportsController extends AbstractController
             if (isset($request->request->get('transaction')['SupplyID'])) {
                 $transactions->set($request->request->get('transaction')['SupplyID']);
             }
-            if (isset($request->request->get('transaction')['Payment'])) {
+            if (isset($request->request->get('transaction')['DeliveryID'])) {
                 $transactions->set($request->request->get('transaction')['DeliveryID']);
             }
             if (isset($request->request->get('transaction')['FoodID'])) {
