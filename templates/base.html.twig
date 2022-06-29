@@ -28,6 +28,21 @@
                 <li><a href="{{ path('supply_list') }}"> <i class="fa-solid fa-truck-field"></i>Food Supply</a></li>
                 <li><a href="{{ path('transaction_list') }}"> <i class="fa-solid fa-briefcase"></i>Transaction</a></li>
 {#                <a href="#" class="cta"><button> Login</button> </a>#}
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('customer_list') }}">Create a post</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('register') }}">Register</a>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
 
